@@ -17,7 +17,14 @@ enable
       ip route 10.10.12.0 255.255.255.252 10.10.24.1
       ip route 10.10.13.0 255.255.255.252 10.10.34.1
 
+      ip route 10.10.10.0 255.255.255.0 10.10.34.1
+      ip route 10.10.20.0 255.255.255.0 10.10.24.1
+      ip route 10.10.30.0 255.255.255.0 10.10.34.1
+
     exit
 
+  copy running-config startup-config
+    startup-config
   show ip int brief
+  show ip address
   exit

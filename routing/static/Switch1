@@ -4,7 +4,7 @@ enable
     int vlan 10
       ip address 10.10.10.254 255.255.255.0
       no shutdown
-    
+
     int Fa0/1
       switchport mode access
       switchport access vlan 10
@@ -17,3 +17,8 @@ enable
     int Fa3/1
       switchport mode access
       switchport access vlan 10
+      exit
+    exit
+
+  copy running-config startup-config
+    startup-config

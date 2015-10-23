@@ -17,3 +17,8 @@ enable
     int Fa3/1
       switchport mode access
       switchport access vlan 40
+      exit
+    exit
+
+  copy running-config startup-config
+    startup-config

@@ -14,6 +14,8 @@ enable
       no shutdown
       exit
     exit
-
+  
+  copy running-config startup-config
+    startup-config
   show ip int brief
   exit
