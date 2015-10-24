@@ -17,6 +17,21 @@ enable
       ip route 10.10.13.0 255.255.255.252 10.10.12.1
       ip route 10.10.34.0 255.255.255.252 10.10.24.2
 
+      ip nat inside source static 10.10.20.1 10.10.22.1
+      ip nat inside source static 10.10.20.2 10.10.22.2
+      ip nat inside source static 10.10.20.3 10.10.22.3
+
+      int Gig0/0
+        ip nat inside
+      int Se0/2/0
+        ip nat outside
+      int Se0/2/1
+        ip nat outside
+        exit
+
+      ip route 10.10.11.0 255.255.255.0 10.10.12.1
+      ip route 10.10.33.0 255.255.255.0 10.10.12.1
+      ip route 10.10.44.0 255.255.255.0 10.10.24.2
     exit
 
   copy running-config startup-config
