@@ -2,8 +2,12 @@ enable
   conf term
     hostname R2
 
+    ip dhcp pool DhcpPool
+      network 10.10.20.0 255.255.255.0
+      default-router 10.10.20.10
+
     int Gig0/0
-      ip address 169.254.0.1 255.255.0.0
+      ip address 10.10.20.10 255.255.0.0
       no shutdown
 
     int Se0/2/0
@@ -17,11 +21,11 @@ enable
       router rip
         version 2
         no auto-summary
-        network 169.254.0.0
+        network 10.10.20.0
         network 10.10.12.0
         network 10.10.24.0
         exit
-      
+
       int Gig0/0
         ip nat inside
       int Se0/2/0

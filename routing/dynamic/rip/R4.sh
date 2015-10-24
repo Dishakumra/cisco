@@ -2,8 +2,13 @@ enable
   conf term
     hostname R4
 
+    ip dhcp pool DhcpPool
+      network 10.10.40.0 255.255.255.0
+      default-router 10.10.40.10
+
     int Gig0/0
-      ip address 169.254.0.1 255.255.0.0
+      no ip address 169.254.0.1 255.255.0.0
+      ip address 10.10.40.10 255.255.0.0
       no shutdown
 
     int Se0/2/0
