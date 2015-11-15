@@ -1,22 +1,22 @@
 enable
   conf term
     hostname S3
-    int vlan 30
-      ip address 10.10.30.254 255.255.255.0
+    int vlan 10
+      ip address 100.10.10.254 255.255.255.0
       no shutdown
 
     int Fa0/1
       switchport mode access
-      switchport access vlan 30
+      switchport access vlan 10
     int Fa1/1
       switchport mode access
-      switchport access vlan 30
+      switchport access vlan 10
     int Fa2/1
       switchport mode access
-      switchport access vlan 30
+      switchport access vlan 10
     int Fa3/1
       switchport mode access
-      switchport access vlan 30
+      switchport access vlan 10
       exit
     exit
 

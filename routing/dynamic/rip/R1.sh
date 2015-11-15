@@ -4,12 +4,12 @@ enable
 
     !
     ip dhcp pool DhcpPool
-      network 10.10.10.0 255.255.255.0
-      default-router 10.10.10.10
+      network 100.10.10.0 255.255.255.0
+      default-router 100.10.10.10
 
     !
     int Gig0/0
-      ip address 10.10.10.10 255.255.255.0
+      ip address 100.10.10.10 255.255.255.0
       no shutdown
 
     int Se0/2/0
@@ -21,12 +21,12 @@ enable
       no shutdown
 
     int vlan 11
-      ip address 10.10.11.10 255.255.255.0
+      ip address 100.10.10.10 255.255.255.0
       no shutdown
       exit
 
     !
-    ip nat pool NatList 10.10.11.0 10.10.11.254 netmask 255.255.255.0
+    ip nat pool NatList 100.10.10.0 100.10.10.254 netmask 255.255.255.0
     access-list 11 permit 10.10.10.0 0.255.255.255
     ip nat inside source list 11 pool NatList overload
 

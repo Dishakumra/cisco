@@ -3,17 +3,17 @@ enable
     hostname R4
 
     ip dhcp pool DhcpPool
-      network 10.10.40.0 255.255.255.0
-      default-router 10.10.40.10
+      network 100.10.40.0 255.255.255.0
+      default-router 100.10.40.10
 
     int Gig0/0
-      no ip address 169.254.0.1 255.255.0.0
-      ip address 10.10.40.10 255.255.0.0
+      ip address 100.10.40.10 255.255.0.0
       no shutdown
 
     int Se0/2/0
       ip address 10.10.44.2 255.255.255.0
       no shutdown
+      
     int Se0/2/1
       ip address 10.10.33.2 255.255.255.0
       no shutdown
