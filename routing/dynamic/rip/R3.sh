@@ -2,26 +2,33 @@ enable
   conf term
     hostname R3
 
+    !
     ip dhcp pool DhcpPool
-      network 100.10.30.0 255.255.255.0
-      default-router 100.10.30.10
+      network 100.10.10.0 255.255.255.0
+      default-router 100.10.10.10
 
+    !
     int Gig0/0
-      ip address 100.10.30.10 255.255.0.0
+      ip address 100.10.10.10 255.255.255.0
+      no shutdown
+
+    int Gig0/1
+      ip address 130.10.10.10 255.255.255.0
       no shutdown
 
     int Se0/2/0
-      ip address 10.10.44.1 255.255.255.0
+      ip address 34.10.10.1 255.255.255.252
       no shutdown
 
     int Se0/2/1
-      ip address 10.10.11.2 255.255.255.0
+      ip address 13.10.10.2 255.255.255.252
       no shutdown
       exit
 
-    ip nat pool NatList 10.10.33.0 10.10.33.254 netmask 255.255.255.0
-    access-list 33 permit 10.10.30.0 0.255.255.255
-    ip nat inside source list 33 pool NatList overload
+    !
+    ip nat pool NatList 130.10.10.0 130.10.10.254 netmask 255.255.255.0
+    access-list 11 permit 100.10.10.0 0.0.0.255
+    ip nat inside source list 11 pool NatList overload
 
     int Gig0/0
       ip nat inside
@@ -31,10 +38,13 @@ enable
       ip nat outside
       exit
 
+    !
     router rip
       version 2
       no auto-summary
-      network 10.0.0.0
+      network 13.0.0.0
+      network 34.0.0.0
+      network 130.0.0.0
       exit
 
     exit

@@ -9,6 +9,7 @@ enable
     int Se0/2/0
       ip address 12.10.10.2 255.255.255.252
       no shutdown
+
     int Se0/2/1
       ip address 24.10.10.1 255.255.255.252
       no shutdown
